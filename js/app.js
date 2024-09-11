@@ -32,8 +32,7 @@ for (let intentos = 5; intentos >= 0; intentos--) {
         alert("Se a detectado que usted es un chorro que se quiere robar la cuenta. Pero no se preocupe, la policia ira por usted 🚓");
         alert("Que tenga un buen día 😊");
         document.write("<h1>🚓</h1>");
-    }
-    
+    } 
 }
 
 
