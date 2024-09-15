@@ -1,42 +1,53 @@
 
-// ~INICIO DE SESION~ //
+// Objeto para almacenar usuarios y contraseñas
+const usuariosRegistrados = {};
 
-// declaro las variables con el usuario y la contraseña
-let user = "DON PEPE";
-let cont = 12345;
+// Función para registrar un nuevo usuario
+function registrarUsuario() {
+    const nuevoUsuario = prompt("Cree un nombre de usuario:").toUpperCase();
+    const nuevaContrasenia = parseInt(prompt("Cree una contraseña numérica:"));
 
-for (let intentos = 5; intentos >= 0; intentos--) {
+    // Almacena el usuario y la contraseña en el objeto
+    usuariosRegistrados[nuevoUsuario] = nuevaContrasenia;
 
-    // ingreso de usuario y contraseña
-    let username = prompt("Ingrese su nombre de usuario:").toUpperCase();
-    let password = parseInt(prompt("Ingrese su contraseña:"));
+    alert("Usuario registrado correctamente. Ahora puedes iniciar sesión.");
+}
 
-    // encierro al usuario en un bucle infinito si no pone una contraseña con numeros
-    while (isNaN(password)) {
-        password = parseInt(prompt("La contraseña debe ser numérica. Ingrésela nuevamente:"));
+// Función para iniciar sesión
+function iniciarSesion() {
+
+    const usuario = prompt("ingrese el nombre de usuario").toUpperCase();
+    const contrasenia = parseInt(prompt("ingrese la contraseña 'recuerde que es numerica'"));
+    
+     // Verifica si el usuario y la contraseña coinciden
+     if (usuariosRegistrados(usuario)) {
+        const contraseniaAlmacenada = usuariosRegistrados[usuario];
+        if (contraseniaAlmacenada === contrasenia) {
+            alert("Inicio de sesión exitoso. ¡Bienvenido!");
+            
+        } else {
+            alert("Contraseña incorrecta. Inténtalo nuevamente.");
+        }
+    } else {
+        alert("Nombre de usuario incorrecto.");
     }
-
-    if (username === user && password === cont) {
-    // inicio de sesion exitoso
-    alert("Inicio de sesión exitoso");
-    document.write("<h1>Bienvenido señor " + user + " 🥳</h1>");
-    break
-
-    // se descuentan el numero de intentos
-    } else if( intentos > 0) {
-        alert("Nombre de usuario o contraseña incorrectos le quedan " + intentos + " intentos");
-        
-    // mensaje cuando el numero de intentos llega a 0
-    } else{
-        alert("Se cabaron los intentos.");
-        alert("Se a detectado que usted es un chorro que se quiere robar la cuenta. Pero no se preocupe, la policia ira por usted 🚓");
-        alert("Que tenga un buen día 😊");
-        document.write("<h1>🚓</h1>");
-    } 
 }
 
 
+while (true) {
+    const opcion = Number(prompt("Ingrese 1 para registrarse o 2 para iniciar sesión"));
 
+    if (opcion === 1) {
+        registrarUsuario();
+    } else if (opcion === 2) {
+        iniciarSesion();
+    } else {
+        alert("Opción inválida. Por favor, elija 1 o 2.");
+    }
+}
+
+
+   
 
 
 
@@ -48,4 +59,5 @@ for (let intentos = 5; intentos >= 0; intentos--) {
 
 
 document.write("<h2>Holis :3<h2/>")
+
 
