@@ -1,4 +1,6 @@
 
+document.write("<h2>Holis :3<h2/>")
+
 // Objeto para almacenar usuarios y contraseñas
 const usuariosRegistrados = {};
 
@@ -33,8 +35,9 @@ function iniciarSesion() {
     }
 }
 
-
+// eligo opcion 1 o 2 si quiero registrarme o inicia sesion
 while (true) {
+
     const opcion = Number(prompt("Ingrese 1 para registrarse o 2 para iniciar sesión"));
 
     if (opcion === 1) {
@@ -58,6 +61,6 @@ while (true) {
 
 
 
-document.write("<h2>Holis :3<h2/>")
+
 
 
